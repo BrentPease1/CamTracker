@@ -14,7 +14,7 @@ library(here)
 
 source(here('helper_functions.R'))
 
-shinyUI(navbarPage('Camera Trap Tracker',id = 'nav',
+shinyUI(navbarPage('CamTracker',id = 'nav',
         
         tabPanel('Data Submission',
         div(class = 'outer',
@@ -24,12 +24,12 @@ shinyUI(navbarPage('Camera Trap Tracker',id = 'nav',
         shinyFeedback::useShinyFeedback(),  #must include for warning messages
         shinyjs::useShinyjs(), #enable/disable submit button
         shinyjs::inlineCSS(appCSS), #formatting
-        title = "Camera Trap Logger - submit and explore camera trap checklists",
+        title = "CamTracker - submit and explore camera trap checklists",
         
         fluidRow(
         column(11.5,
           div(id = 'headers',
-              h3('Camera Trap Logger - An open database of camera trap checklists'),
+              h3('CamTracker - An open database of camera trap checklists'),
               h4("Monitoring the world's mammals, one checklist
                  at a time."),
               hr()), #end div
