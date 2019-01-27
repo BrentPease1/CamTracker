@@ -276,6 +276,10 @@ shinyServer(function(input, output, session) {
                                 "<b>Species Count</b>:", species_count))
   })
   
+  output$deployment_length = renderText({
+    paste('Your camera was deployed for',(input$retrieval_date-input$deploy_date),'days')
+  })
+  
   
 } #end server
 

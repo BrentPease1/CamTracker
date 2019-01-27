@@ -29,7 +29,7 @@ shinyUI(navbarPage('CamTracker',id = 'nav',
         fluidRow(
         column(11.5,
           div(id = 'headers',
-              h3('CamTracker - An open database of camera trap checklists'),
+              h3('CamTracker - An open-access database of camera trap checklists'),
               h4("Monitoring the world's mammals, one checklist
                  at a time."),
               hr()), #end div
@@ -73,6 +73,7 @@ shinyUI(navbarPage('CamTracker',id = 'nav',
               dateInput("retrieval_date", 
                         "Retrieval Date:", 
                         format = ),
+              textOutput('deployment_length'),
               hr()), #end div
           
           div(id = "deployment_specifics",               
@@ -147,7 +148,11 @@ shinyUI(navbarPage('CamTracker',id = 'nav',
               actionLink("submit_another", "Submit another response"))),
           
           hr(),
-          p('Shiny App created by Brent Pease')) #end div
+          span("Shiny App created by"),
+          a('Brent Pease', href = "https://brentpease1.github.io/"), br(), br(),
+          a(actionButton(inputId = "email1", label = "Questions/Comments? Contact me!", 
+                         icon = icon("envelope", lib = "font-awesome")),
+            href="https://brentpease1.github.io/contact.html"), br(), br(), br()) #end div
           )
           ) #fluid page
         ) #div
