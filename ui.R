@@ -152,18 +152,6 @@ shinyUI(navbarPage('CamTracker',id = 'nav',
           ) #fluid page
         ) #div
         ), #tabPanel
-        # tabPanel("Data exploration",
-        #          div(class = 'outer',
-        #              fluidPage(fluidRow(
-        #                column(11.5,
-        #                       div(id = 'data_visualization',
-        #                           leafletOutput("data_viz_map", width = "60%"),
-        #                           uiOutput("adminPanelContainer")) # end div
-        #                ) #end column 
-        #              ) # end fluidRow
-        #              ) #end fluidPage
-        #          ) # end div
-        # ),
         tabPanel("Data Exploration",
         div(class = 'outer',
         fluidPage(
