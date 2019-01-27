@@ -81,8 +81,7 @@ tweaks <- list(tags$head(tags$style(HTML("
 # mammal list ####
 mams <- fread(here("Data/mammal_species_list.csv"))
 mams <- cSplit(mams, "States", ",")
-sea_orders <- c('Sirenia',  # 
-                'Artiodactyla')  # Sperm whale
+sea_orders <- c('Sirenia')
 sea_fams <- c('Otariidae',
               'Phocidae',
               'Delphinidae',
@@ -90,8 +89,10 @@ sea_fams <- c('Otariidae',
               'Balaenopteridae',
               'Balaenidae',
               'Phocoenidae',
+              'Physeteridae',
               'Ziphiidae',
-              'Kogiidae')
+              'Kogiidae',
+              'Ziphiidae')
 terra_orders <- c('Chiroptera',  # Bats
                   'Rodentia',  # Rodents
                   'Eulipotyphla')  # Shrews/moles
