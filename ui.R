@@ -178,7 +178,7 @@ shinyUI(navbarPage('CamTracker',id = 'nav',
          label = 'State',
          choices = c('All',states_name),
          multiple = F),
-        uiOutput("adminPanelContainer")
+        uiOutput("DownloadPanel")
         ),
         mainPanel(
         leafletOutput('mapPlot'),  # leaflet output for plotting the points

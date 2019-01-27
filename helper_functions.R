@@ -81,7 +81,8 @@ tweaks <- list(tags$head(tags$style(HTML("
 # mammal list ####
 mams <- fread(here("Data/mammal_species_list.csv"))
 mams <- cSplit(mams, "States", ",")
-sea_orders <- c('Sirenia')
+sea_orders <- c('Sirenia',  # 
+                'Artiodactyla')  # Sperm whale
 sea_fams <- c('Otariidae',
               'Phocidae',
               'Delphinidae',
@@ -91,8 +92,12 @@ sea_fams <- c('Otariidae',
               'Phocoenidae',
               'Ziphiidae',
               'Kogiidae')
+terra_orders <- c('Chiroptera',  # Bats
+                  'Rodentia',  # Rodents
+                  'Eulipotyphla')  # Shrews/moles
 mams <- mams[!(Order %in% sea_orders)]
 mams <- mams[!(Family %in% sea_fams)]
+mams <- mams[!(Order %in% terra_orders)]  # Bats
 mams_common <- mams$`Common Name` #just get the combined names column
 
 mammals <-

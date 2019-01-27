@@ -99,22 +99,15 @@ shinyServer(function(input, output, session) {
   })
   
   # render the admin panel
-  output$adminPanelContainer <- renderUI({
-    if (!isAdmin()) return()
-    
+  output$DownloadPanel <- renderUI({
     div(
-      id = "adminPanel",
-      h3("Camera checklists"),
-      downloadButton("downloadBtn", "Download all responses"), br(), br(),
-      downloadButton('subset_downloadBtn','Download selected responses'), br(), br(),
-      DT::dataTableOutput("responsesTable"), br()
+      id = "DownloadPanel",
+      h4("Download CamTracker checklists"),
+      downloadButton("downloadBtn", "All deployments"), br(), br(),
+      downloadButton('subset_downloadBtn','Selected deployments'), br(), br()
     )
   })
   
-  # determine if current user is admin
-  isAdmin <- reactive({
-    is.null(session$user) || session$user %in% adminUsers
-  })    
   
   # server - ensure valid email address ####
   observeEvent(input$email, {
@@ -171,7 +164,7 @@ shinyServer(function(input, output, session) {
   # Allow user to download responses ####
   output$downloadBtn <- downloadHandler(
     filename = function() { 
-      sprintf("camera_trap_checklist.csv", humanTime())
+      paste0("CamTracker_checklist","_", humanTime(),"_", ".csv")
     },
     content = function(file) {
       write.csv(loadData(), file, row.names = FALSE)
@@ -180,7 +173,7 @@ shinyServer(function(input, output, session) {
   
   output$subset_downloadBtn <- downloadHandler(
     filename = function() { 
-      sprintf("mimic-google-form_%s.csv", humanTime())
+      paste0("CamTracker_checklist","_", humanTime(),"_", ".csv")
     },
     content = function(file) {
       write.csv(subsetData(), file, row.names = FALSE)
@@ -193,7 +186,7 @@ shinyServer(function(input, output, session) {
   
   
   
-  # subset the data on various inputs from ui.R
+  # subset the data on various inputs from ui.R for data exploration map
   subsetData <- reactive({
     species <- input$focal_species
     state <- input$focal_state
@@ -213,6 +206,11 @@ shinyServer(function(input, output, session) {
       a <- sapply(st_intersects(tmp_points,good_state), function(z) if (length(z)==0) NA_integer_ else z[1])
       
       new_data <- points[c(which(!is.na(a))),]
+      if(nrow(new_data) == 0){
+        showNotification("No deployments match your selection", action = NULL, duration = 5, closeButton = TRUE,
+                         id = NULL, type = c("default"),
+                         session = getDefaultReactiveDomain())
+      }
       return(new_data)
     }
     if(species != 'All' & state == 'All'){
@@ -224,6 +222,11 @@ shinyServer(function(input, output, session) {
       tmp <- points[,lapply(.SD, function(x) grepl(species, x, perl=TRUE)), #need to fix this!
                     .SDcols = c(10:109)]
       new_data <- points[c(which(rowSums(tmp)>0)),]
+      if(nrow(new_data) == 0){
+        showNotification("No deployments match your selection", action = NULL, duration = 5, closeButton = TRUE,
+                         id = NULL, type = c("default"),
+                         session = getDefaultReactiveDomain())
+      }
       return(new_data)
     }
     if(species != 'All' & state != 'All'){
@@ -243,6 +246,11 @@ shinyServer(function(input, output, session) {
       a <- sapply(st_intersects(tmp_points,good_state), function(z) if (length(z)==0) NA_integer_ else z[1])
       
       new_data <- points[c(which(!is.na(a))),]
+      if(nrow(new_data) == 0){
+        showNotification("No deployments match your selection", action = NULL, duration = 5, closeButton = TRUE,
+                         id = NULL, type = c("default"),
+                         session = getDefaultReactiveDomain())
+      }
       return(new_data)
     }
     
@@ -259,11 +267,6 @@ shinyServer(function(input, output, session) {
     leaflet() %>%
       addTiles() %>%
       setView(lng = -97.38, lat = 42.877, zoom = 4) %>%
-      addDrawToolbar(
-        editOptions = editToolbarOptions(
-          selectedPathOptions = selectedPathOptions()
-        )
-      ) %>%
       addMarkers(data = subsetData(), 
                  lng = ~Longitude, 
                  lat = ~Latitude,

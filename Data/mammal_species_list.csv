@@ -178,7 +178,7 @@ Hoary Marmot,Rodentia,Sciuridae,Marmota caligata,"Alaska, Idaho, Montana, Washin
 Hooded Skunk,Carnivora,Mephitidae,Mephitis macroura,"Arizona, New Mexico, Texas"
 Hopi Chipmunk,Rodentia,Sciuridae,Tamias rufus,"Arizona, Colorado, New Mexico, Utah"
 House Mouse,Rodentia,Muridae,Mus musculus,"Alaska, Alabama, Arkansas, Arizona, California, Colorado, Connecticut, Delaware, Florida, Georgia, Hawaii, Iowa, Idaho, Illinois, Indiana, Kansas, Kentucky, Louisiana, Massachusetts, Maryland, Maine, Michigan, Minnesota, Mississippi, Missouri, Montana, North Carolina, North Dakota, Nebraska, New Hampshire, New Jersey, New Mexico, Nevada, New York, Ohio, Oklahoma, Oregon, Pennsylvania, Rhode Island, South Carolina, South Dakota, Tennessee, Texas, Utah, Virginia, Vermont, Washington, Wisconsin, West Virginia, Wyoming"
-Hubb's Beaked Whale,,,Mesoplodon carlhubbsi,"California, Oregon, Washington"
+Hubb's Beaked Whale,Artiodactyla,,Mesoplodon carlhubbsi,"California, Oregon, Washington"
 Humpback Whale,Artiodactyla,Balaenopteridae,Megaptera novaeangliae,"Alaska, California, Connecticut, Florida, Hawaii, Maine, Maryland, Massachusetts, New Hampshire, New Jersey, New York, North Carolina, Oregon, Rhode Island, Texas, Virginia, Washington"
 Idaho Ground Squirrel,Rodentia,Sciuridae,Urocitellus brunneus,Idaho
 Idaho Pocket Gopher,Rodentia,Geomyidae,Thomomys idahoensis,"Idaho, Montana, Wyoming"
@@ -344,6 +344,7 @@ Silky Pocket Mouse,Rodentia,Heteromyidae,Perognathus flavus,"Arizona, Colorado, 
 Silver-haired Bat,Chiroptera,Vespertilionidae,Lasionycteris noctivagans,"Alaska, Alabama, Arkansas, Arizona, California, Colorado, Connecticut, Delaware, Georgia, Iowa, Idaho, Illinois, Indiana, Kansas, Kentucky, Louisiana, Massachusetts, Maryland, Maine, Michigan, Minnesota, Mississippi, Missouri, Montana, North Carolina, North Dakota, Nebraska, New Hampshire, New Jersey, New Mexico, Nevada, New York, Ohio, Oklahoma, Oregon, Pennsylvania, Rhode Island, South Carolina, South Dakota, Tennessee, Texas, Utah, Virginia, Vermont, Washington, Wisconsin, West Virginia, Wyoming"
 Singing Vole,Rodentia,Cricetidae,Microtus miurus,Alaska
 Siskiyou Chipmunk,Rodentia,Sciuridae,Tamias siskiyou,"California, Oregon"
+Rodent spp. ,Other,Other,Other other,"Alaska, Alabama, Arkansas, Arizona, California, Colorado, Connecticut, Delaware, Florida, Georgia, Iowa, Idaho, Illinois, Indiana, Kansas, Kentucky, Louisiana, Massachusetts, Maryland, Maine, Michigan, Minnesota, Mississippi, Missouri, Montana, North Carolina, North Dakota, Nebraska, New Hampshire, New Jersey, New Mexico, Nevada, New York, Ohio, Oklahoma, Oregon, Pennsylvania, Rhode Island, South Carolina, South Dakota, Tennessee, Texas, Utah, Virginia, Vermont, Washington, Wisconsin, West Virginia, Wyoming"
 Smoky Shrew,Eulipotyphla,Soricidae,Sorex fumeus,
 Snowshoe Hare,Lagomorpha,Leporidae,Lepus americanus,"Alaska, California, Colorado, Connecticut, Idaho, Massachusetts, Maryland, Maine, Michigan, Minnesota, Montana, North Carolina, North Dakota, Nebraska, New Hampshire, New Jersey, New Mexico, Nevada, New York, Oregon, Pennsylvania, Rhode Island, South Dakota, Tennessee, Utah, Virginia, Vermont, Washington, Wisconsin, West Virginia, Wyoming"
 Sonoma Chipmunk,Rodentia,Sciuridae,Tamias sonomae,California
