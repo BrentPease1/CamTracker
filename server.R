@@ -3,24 +3,6 @@
 
 shinyServer(function(input, output, session) {   
   
-  points <- as.data.table(loadData())
-  points[, `:=`(deploy_date = anydate(deploy_date),
-                retrieval_date = anydate(retrieval_date),
-                species_count = Reduce(`+`, lapply(.SD,function(x) !is.na(x)))), .SDcols = c(10:109)]
-  
-  #for storing clicks
-  output$data_viz_map = renderLeaflet({
-    leaflet() %>%
-      addTiles() %>%
-      addMarkers(data = points, 
-                 lng = ~Longitude, 
-                 lat = ~Latitude,
-                 popup = ~paste("<b>Deployment Date:</b>", deploy_date, "<br>",
-                                "<b>Retrieval Data:</b>", retrieval_date, "<br>",
-                                "<b>Complete Checklist</b>:", complete_checklist, "<br>",
-                                "<b>Species Count</b>:", species_count)) %>%
-      setView(lng = -97.38, lat = 42.877, zoom = 4)})
-  
   
   #leaflet - select camera location
   output$map = renderLeaflet({
@@ -270,6 +252,7 @@ shinyServer(function(input, output, session) {
       addMarkers(data = subsetData(), 
                  lng = ~Longitude, 
                  lat = ~Latitude,
+                 clusterOptions = markerClusterOptions(),
                  popup = ~paste("<b>Deployment Date:</b>", deploy_date, "<br>",
                                 "<b>Retrieval Data:</b>", retrieval_date, "<br>",
                                 "<b>Complete Checklist</b>:", complete_checklist, "<br>",
