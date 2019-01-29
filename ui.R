@@ -58,7 +58,8 @@ shinyUI(navbarPage('CamTracker',id = 'nav',
               
               # deployment map ####
               h4('Step 2 of 5: Where was the camera deployed?'),
-              h5('To drop pin, zoom to location and click on map'),
+              h5('Zoom to specific deployment location and click on map to drop pin'),
+              h5('After clicking on map, the Longitude and Latitude boxes will be autofilled'),
               leafletOutput("map", width = "60%"),
               textInput('Longitude',labelMandatory('Longitude: '),''),
               textInput('Latitude', labelMandatory('Latitude: '),''),
@@ -117,6 +118,9 @@ shinyUI(navbarPage('CamTracker',id = 'nav',
               # select species detected ####
               
               h4('Step 5 of 5: List all species detected during the deployment'),
+              h5('A species list will appear once a camera deployment location (Longtiude/Latitude)
+                 has been selected in Step 2.'),
+              h5('This species list depends on where your camera was deployed.'),
               
               column(width = 11.5, mammals),
               
